@@ -1,0 +1,18 @@
+# simulation
+mesa>=3.5
+numpy>=1.26
+pandas>=2.0
+networkx>=3.0
+scipy>=1.11
+matplotlib>=3.7
+
+# SA and the crash prediction model
+SALib>=1.5
+joblib>=1.3
+scikit-learn>=1.3
+
+# interactive interface 
+streamlit>=1.30
+
+# S&P 500 validation download
+yfinance>=0.2

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crashes-abm"
+version = "1.0.0"
+description = "An agent-based model of endogenous financial crashes"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Group 11, Agent-Based Modelling" }]
+dependencies = [
+    "mesa>=3.5", "numpy>=1.26", "pandas>=2.0", "networkx>=3.0",
+    "scipy>=1.11", "matplotlib>=3.7", "SALib>=1.5", "joblib>=1.3", "scikit-learn>=1.3",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.30"]
+validation = ["yfinance>=0.2"]
+
+[project.scripts]
+crashes-demo = "scripts.run_demo:main"
+
+[tool.setuptools]
+packages = ["crashes_abm", "crashes_abm.analysis"]
