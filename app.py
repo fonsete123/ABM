@@ -47,7 +47,7 @@ with st.sidebar:
     seed = st.number_input("seed", 0, 9999, step=1, key="seed")
     st.markdown("**The free parameters**")
     leverage_cap = st.slider("leverage cap", 1.0, 5.0, step=0.1, key="leverage_cap",
-                             help="the master variable: higher = more crash-prone")
+                             help="higher = more crash-prone")
     impact_omega = st.slider("impact curvature (omega)", 0.5, 2.0, step=0.05, key="impact_omega",
                              help="below 1 is concave and deepens crashes")
     ref_adapt = st.slider("reference adaptation", 0.0, 0.4, step=0.01, key="ref_adapt",
@@ -86,21 +86,24 @@ g1, g2 = st.columns(2)
 with g1:
     st.subheader("Fat tails")
     rr = r[300:]; mu, sd = rr.mean(), rr.std()
+    st.metric("returns beyond 3 sigma", "%.1f%%" % (np.mean(np.abs(rr - mu) > 3 * sd) * 100),
+              help="a normal distribution would give about 0.3%")
     figd, axd = plt.subplots(figsize=(6, 3.4))
-    axd.hist(rr, bins=70, density=True, alpha=0.7)
+    axd.hist(rr, bins=50, density=True, alpha=0.75)
     xs = np.linspace(rr.min(), rr.max(), 200)
-    axd.plot(xs, np.exp(-(xs - mu) ** 2 / (2 * sd ** 2)) / (sd * np.sqrt(2 * np.pi)), "r-", label="normal")
+    axd.plot(xs, np.exp(-(xs - mu) ** 2 / (2 * sd ** 2)) / (sd * np.sqrt(2 * np.pi)), "r-", lw=1.5, label="normal")
     axd.set_yscale("log"); axd.legend(); axd.set_title("return density vs normal (log y)")
     axd.set_xlabel("log return"); axd.set_ylabel("density")
     figd.tight_layout(); st.pyplot(figd)
 with g2:
     st.subheader("Wealth inequality")
     w = np.sort(m.equity[m.active]); w = w[w > 0]
-    st.metric("Gini coefficient", "%.2f" % _gini(w))
+    st.metric("Gini coefficient", "%.2f" % _gini(w),
+              help="0 = everyone equal, 1 = one agent owns everything")
     figw, axw = plt.subplots(figsize=(6, 3.4))
-    axw.hist(w, bins=np.logspace(np.log10(w.min()), np.log10(w.max()), 30)); axw.set_xscale("log")
-    axw.set_xlabel("agent equity (log)"); axw.set_ylabel("number of agents")
-    axw.set_title("%d survivors" % len(w))
+    axw.hist(w, bins=np.logspace(np.log10(w.min()), np.log10(w.max()), 30), alpha=0.85)
+    axw.set_xscale("log"); axw.set_xlabel("agent equity (log)"); axw.set_ylabel("number of agents")
+    axw.set_title("wealth distribution (%d survivors)" % len(w))
     figw.tight_layout(); st.pyplot(figw)
 
 # anatomy of the worst crash in this run
