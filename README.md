@@ -21,13 +21,15 @@ Python 3.10+. The core simulation needs `mesa, numpy, pandas, networkx, scipy,
 matplotlib`; the sensitivity analysis adds `SALib, joblib`; the web app needs
 `streamlit`; the S&P 500 validation optionally uses `yfinance`.
 
-## Quick start
+## Quick start (Using as a package)
 
 ```python
 from crashes_abm import run, metrics
 
 model, history = run(steps=1500, seed=2, leverage_cap=3.0)
 print(metrics(history))
+
+#Sample output:
 # {'excess_kurtosis': 8.04, 'crash_freq': 26.7, 'max_drawdown': 0.52,
 #  'vol_cluster': 0.27, 'hill_left': 2.30, 'acf_ret_1': 0.07, ...}
 ```
