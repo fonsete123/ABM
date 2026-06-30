@@ -1,6 +1,6 @@
 # Crashes from the Bottom Up
 
-An agent-based model of*endogenous financial crashes. Heterogeneous traders,
+An agent-based model of endogenous financial crashes. Heterogeneous traders,
 fundamentalists and chartists, live on a social network, decide every trade through
 a Prospect Theory value function, trade on leverage subject to margin calls, herd
 toward their neighbours, and switch strategy by imitating whoever recently did better.
