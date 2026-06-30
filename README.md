@@ -4,8 +4,8 @@ An agent-based model of endogenous financial crashes. Heterogeneous traders,
 fundamentalists and chartists, live on a social network, decide every trade through
 a Prospect Theory value function, trade on leverage subject to margin calls, herd
 toward their neighbours, and switch strategy by imitating whoever recently did better.
-Price moves with aggregate excess demand; there is no central auctioneer. **Crashes,
-fat tails and clustered volatility are not coded in — they emerge.**
+Price moves with aggregate excess demand; there is no central auctioneer. Note that crashes,
+fat tails and clustered volatility are not coded in but rather emerge naturally.
 
 Group 11, Agent-Based Modelling.
 
@@ -70,7 +70,7 @@ necessity tests, the impact/reference and leverage-cap sweeps, the leverage-herd
 phase map, network topology, bankruptcy and population robustness, the S&P 500
 validation, the Morris screen, the Sobol indices, and the crash early-warning study.
 
-Timings are from a **MacBook Pro (Apple M4 Pro, 10+4 cores)**; wall-time scales with
+Timings are from a MacBook Pro (Apple M4 Pro, 10+4 cores); wall-time scales with
 your hardware, but every run is seeded, so the numbers come out identical on any
 machine or OS.
 
@@ -100,7 +100,7 @@ app.py                 interactive Streamlit interface
 
 Disagreement between fundamentalists and chartists creates volume. Loss-averse traders
 hold their losers (the disposition effect); leveraged losers eventually breach margin
-and are **force-sold** into a falling market — a fire sale that pushes price down
+and are forced to sell into a falling market creating a fire sale that pushes price down
 further and trips their neighbours' margins. Herding synchronises it into a cascade. A
 nonlinear, concave price impact deepens the fall. None of this is scripted; it falls
 out of the interaction.
@@ -109,9 +109,9 @@ out of the interaction.
 
 `crashes_abm.analysis.EWarn` tests it. Leading indicators are read off each
 step (using only past data), and we measure how well they predict a crash in the next
-H steps. **Aggregate leverage is a genuine early-warning signal** (ROC AUC ~0.71 at a
+H steps. Aggregate leverage is a genuine early-warning signal (ROC AUC ~0.71 at a
 10-step horizon, rising to ~0.84 by 30 steps); a combined model reaches ~0.87. The
-signature is the **volatility paradox**: leverage sits high through a quiet,
+signature is the volatility paradox: leverage sits high through a quiet,
 low-volatility stretch and then collapses as the crash hits, so the calm is exactly
 when the market is most fragile. The classic rising-variance warning fails here, which
 is itself worth reporting.
