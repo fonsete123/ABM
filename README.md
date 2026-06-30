@@ -1,7 +1,7 @@
 # Crashes from the Bottom Up
 
-An agent-based model of **endogenous financial crashes**. Heterogeneous traders —
-fundamentalists and chartists — live on a social network, decide every trade through
+An agent-based model of*endogenous financial crashes. Heterogeneous traders,
+fundamentalists and chartists, live on a social network, decide every trade through
 a Prospect Theory value function, trade on leverage subject to margin calls, herd
 toward their neighbours, and switch strategy by imitating whoever recently did better.
 Price moves with aggregate excess demand; there is no central auctioneer. **Crashes,
@@ -57,7 +57,7 @@ python scripts/run_demo.py --steps 1500 --seed 2 --leverage-cap 4.0
 
 Runs once, prints the metrics, and saves the four-panel overview to a PNG.
 
-## Reproduce all the results
+## Reproducing Results
 
 ```bash
 python scripts/reproduce_all.py          # full study, ~30 min (Sobol 512 x 10 seeds)
@@ -96,7 +96,7 @@ scripts/
 app.py                 interactive Streamlit interface
 ```
 
-## How a crash happens (the short version)
+## Crash Mechanics
 
 Disagreement between fundamentalists and chartists creates volume. Loss-averse traders
 hold their losers (the disposition effect); leveraged losers eventually breach margin
@@ -105,7 +105,7 @@ further and trips their neighbours' margins. Herding synchronises it into a casc
 nonlinear, concave price impact deepens the fall. None of this is scripted; it falls
 out of the interaction.
 
-## Can we predict the crashes?
+## Crash Prediction
 
 `crashes_abm.analysis.EWarn` tests it. Leading indicators are read off each
 step (using only past data), and we measure how well they predict a crash in the next
