@@ -53,20 +53,20 @@ seed), the leverage early-warning signal, and buttons to download the run.
 
 ## Command line
 
+### Demo Usage
+
 ```bash
 python scripts/run_demo.py --steps 1500 --seed 2 --leverage-cap 4.0
 ```
-
 Runs once, prints the metrics, and saves the four-panel overview to a PNG.
 
-## Reproducing Results
+### Reproducing Results
 
 ```bash
 python scripts/reproduce_all.py          # full study, ~30 min (Sobol 512 x 10 seeds)
 python scripts/reproduce_all.py --quick  # small samples, a couple of minutes
 ```
-
-Writes every figure and table to `./figures`: the emergent run and stylised facts, the
+Writes every figure and table to `./figures` folder, the emergent run and stylised facts, the
 worst-crash anatomy, the wealth distribution (Lorenz + Gini), the social network,
 necessity tests, the impact/reference and leverage-cap sweeps, the leverage-herding
 phase map, network topology, bankruptcy and population robustness, the S&P 500
