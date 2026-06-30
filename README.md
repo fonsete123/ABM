@@ -130,10 +130,10 @@ sensitivity-analysis design and the crash-predictability study), the interface a
 scripts.
 
 **Standard frameworks and libraries we build on:** the agent scheduling scaffold is
-from **Mesa**; numerics from **NumPy / SciPy**, networks from **NetworkX**, dataframes
-from **pandas**, plots from **Matplotlib**, the Morris and Sobol samplers/estimators
-from **SALib**, parallelism from **joblib**, the web interface from **Streamlit**, and
-the S&P 500 download from **yfinance**.
+from Mesa; numerics from NumPy / SciPy, networks from NetworkX, dataframes
+from pandas, plots from Matplotlib, the Morris and Sobol samplers/estimators
+from SALib, parallelism from joblib, the web interface from Streamlit, and
+the S&P 500 download from yfinance.
 
 **Model design draws on (cited, not copied):** Lux & Marchesi (1999), Brock & Hommes
 (1998), Thurner, Farmer & Geanakoplos (2012), Farmer & Joshi (2002), Beja & Goldman
